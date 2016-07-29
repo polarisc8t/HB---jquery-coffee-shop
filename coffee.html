@@ -42,23 +42,53 @@
         <h4>Total: <span id="revenue"><!-- Revenue Message will show up here --></span></h4>
     </div>
 </div>
+<script src="http://code.jquery.com/jquery.js"></script>
 
 <script>
 
     var myImage = document.getElementById("coffee_image");
-    var myRevenueMessage = document.getElementById("revenue");
+    // var myRevenueMessage = document.getElementById("revenue");
 
     myImage.setAttribute('src', "static/coffee_beans.jpg");
 
-    myImage.addEventListener('click', function () {
-        return makeCoffee();
-    });
+    // myImage.addEventListener('click', function () {
+    //     return makeCoffee();
+    // });
 
-    function makeCoffee() {
-         myImage.src = "static/coffee_machine.jpg";
-         setTimeout(function() { myImage.setAttribute('src', "static/coffee_mug.jpg"); }, 500);
-         setTimeout(function() { myImage.setAttribute('src', "static/coffee_beans.jpg"); }, 1500);
-    }
+    // function makeCoffee() {
+    //      myImage.src = "static/coffee_machine.jpg";
+    //      setTimeout(function() { myImage.setAttribute('src', "static/coffee_mug.jpg"); }, 500);
+    //      setTimeout(function() { myImage.setAttribute('src', "static/coffee_beans.jpg"); }, 1500);
+    // }
+    
+    $("#coffee_image").attr("src");
+
+    $("#coffee_image").attr("src", "static/coffee_beans.jpg");
+    
+   
+        var numClicks = 0;
+        $("#coffee_image").click(function(){
+            numClicks += 1;
+            $("#coffee_image").attr("src", "static/coffee_machine.jpg");
+            setTimeout(function() { 
+                myImage.setAttribute('src', "static/coffee_mug.jpg"); 
+            }, 1500);
+            $("#coffee_image").attr("src", "static/coffee_mug.jpg");
+            setTimeout(function() { 
+                myImage.setAttribute('src', "static/coffee_beans.jpg"); 
+            }, 1500);
+
+            
+        });
+
+    // function resetTobeans(evt) {
+    //     $("#coffee_image").attr("src");
+    //     $("#coffee_image").attr("src", "static/coffee_beans.jpg");
+    // };
+
+
+
+
 
 </script>
 
